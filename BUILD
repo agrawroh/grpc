@@ -33,7 +33,6 @@ package(
     default_visibility = ["//visibility:public"],
     features = [
         "-parse_headers",
-        "layering_check",
     ],
 )
 
