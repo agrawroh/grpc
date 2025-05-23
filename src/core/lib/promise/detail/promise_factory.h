@@ -135,7 +135,7 @@ GPR_ATTRIBUTE_ALWAYS_INLINE_FUNCTION
 // Promote a callable() -> T|Poll<T> to a PromiseFactory(A) -> Promise<T>
 // by dropping the argument passed to the factory.
 template <typename A, typename F>
-GPR_ATTRIBUTE_ALWAYS_INLINE_FUNCTION inline absl::enable_if_t<
+inline absl::enable_if_t
     !IsVoidCallable<ResultOf<F()>>::value, PromiseLike<RemoveCVRef<F>>>
 PromiseFactoryImpl(OnceToken, F f, A&&) {
   return PromiseLike<F>(std::move(f));
